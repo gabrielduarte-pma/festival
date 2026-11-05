@@ -16,7 +16,7 @@
 <tr><th>Stand</th><th>Categoria</th><th>Local</th><th>Expositor</th><th>Perfil</th><th></th></tr>
 @foreach($stands as $s)
 <tr>
-  <td><b>{{ $s->nome }}</b> @unless($s->ativo)<span class="tag no">inativo</span>@endunless</td>
+  <td><b>{{ $s->nome }}</b> @unless($s->ativo)<span class="tag no">inativo</span>@endunless @unless($s->noMapa())<span class="tag no">fora do mapa</span>@endunless</td>
   <td>{{ $s->categoria }}</td><td class="mut">{{ $s->localizacao() }}</td>
   <td class="mut">{{ $s->usuarios->pluck('name')->join(', ') ?: '—' }}</td>
   <td><span class="tag {{ $s->perfilCompleto() ? 'ok' : '' }}">{{ $s->perfilCompleto() ? 'completo' : 'incompleto' }}</span></td>

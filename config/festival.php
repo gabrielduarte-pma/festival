@@ -12,6 +12,9 @@ return [
 
     'categorias' => ['Gastronomia', 'Bebidas', 'Artesanato', 'Cultura', 'Serviços', 'Outros'],
 
+    // Tamanho do desenho public/assets/mapa.svg (viewBox). Ao trocar o SVG, ajuste aqui.
+    'mapa' => ['w' => 1198, 'h' => 3720],
+
     // Validade do link de convite do expositor (em dias).
     'convite_dias' => 14,
 ];

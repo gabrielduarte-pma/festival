@@ -37,7 +37,9 @@ class StandController extends Controller
 
     public function create()
     {
-        return view('painel.stands.form', ['stand' => new Stand(['ativo' => true, 'categoria' => 'Gastronomia'])]);
+        $stand = new Stand(['ativo' => true, 'categoria' => 'Gastronomia']);
+
+        return view('painel.stands.form', ['stand' => $stand, 'mapa' => $this->dadosMapa($stand)]);
     }
 
     public function store(Request $request)
@@ -55,7 +57,7 @@ class StandController extends Controller
 
     public function edit(Stand $stand)
     {
-        return view('painel.stands.form', ['stand' => $stand->load('fotos', 'usuarios')]);
+        return view('painel.stands.form', ['stand' => $stand->load('fotos', 'usuarios'), 'mapa' => $this->dadosMapa($stand)]);
     }
 
     public function update(Request $request, Stand $stand)
@@ -91,6 +93,21 @@ class StandController extends Controller
         return redirect()->route('painel.stands.index')->with('ok', 'Stand removido.');
     }
 
+    /** Dados para o seletor visual de posição (lotes, pontos de referência e demais stands). */
+    private function dadosMapa(Stand $atual): array
+    {
+        $base = json_decode(file_get_contents(database_path('data/mapa.json')), true);
+
+        return [
+            'w' => config('festival.mapa.w'),
+            'h' => config('festival.mapa.h'),
+            'lotes' => array_map(fn ($l) => ['rect' => $l['rect']], $base['lotes']),
+            'landmarks' => array_map(fn ($l) => ['nome' => $l['nome'], 'rect' => $l['rect']], $base['landmarks']),
+            'stands' => Stand::where('id', '!=', $atual->id ?? 0)->get(['nome', 'rect_x', 'rect_y', 'rect_w', 'rect_h'])
+                ->map(fn ($s) => ['nome' => $s->nome, 'rect' => [$s->rect_x, $s->rect_y, $s->rect_w, $s->rect_h]])->values()->all(),
+        ];
+    }
+
     private function dadosBasicos(Request $request): array
     {
         $d = $request->validate([
@@ -101,10 +118,10 @@ class StandController extends Controller
             'posicao' => ['nullable', 'integer', 'between:1,50'],
             'lado' => ['nullable', Rule::in(['L', 'R'])],
             'referencia' => ['nullable', 'string', 'max:120'],
-            'rect_x' => ['required', 'integer', 'between:0,1274'],
-            'rect_y' => ['required', 'integer', 'between:0,4071'],
-            'rect_w' => ['required', 'integer', 'between:1,1274'],
-            'rect_h' => ['required', 'integer', 'between:1,4071'],
+            'rect_x' => ['required', 'integer', 'between:0,'.config('festival.mapa.w')],
+            'rect_y' => ['required', 'integer', 'between:0,'.config('festival.mapa.h')],
+            'rect_w' => ['required', 'integer', 'between:1,'.config('festival.mapa.w')],
+            'rect_h' => ['required', 'integer', 'between:1,'.config('festival.mapa.h')],
         ]);
         $d['ativo'] = $request->boolean('ativo');
 

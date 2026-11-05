@@ -17,13 +17,14 @@
     <div><label>Lado</label><select name="lado"><option value="">—</option><option value="L" @selected(old('lado',$stand->lado)==='L')>Esquerdo</option><option value="R" @selected(old('lado',$stand->lado)==='R')>Direito</option></select></div>
     <div><label>Referência</label><input type="text" name="referencia" value="{{ old('referencia',$stand->referencia) }}"></div>
   </div>
-  <label>Retângulo no mapa <span class="mut">(x, y, largura, altura em px do SVG 1274×4071)</span></label>
+  <label>Retângulo no mapa <span class="mut">(x, y, largura, altura em px do SVG {{ config('festival.mapa.w') }}×{{ config('festival.mapa.h') }})</span></label>
   <div class="row">
     <input type="number" name="rect_x" required value="{{ old('rect_x',$stand->rect_x) }}" placeholder="x">
     <input type="number" name="rect_y" required value="{{ old('rect_y',$stand->rect_y) }}" placeholder="y">
     <input type="number" name="rect_w" required value="{{ old('rect_w',$stand->rect_w ?? 80) }}" placeholder="largura">
     <input type="number" name="rect_h" required value="{{ old('rect_h',$stand->rect_h ?? 60) }}" placeholder="altura">
   </div>
+  @include('partials.mapa-picker')
   <label><input type="checkbox" name="ativo" value="1" @checked(old('ativo',$stand->ativo))> Ativo (aparece no app)</label>
 </div>
 <div class="card">

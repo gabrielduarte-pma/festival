@@ -16,7 +16,7 @@ class MapaController extends Controller
         // Sempre mostra 4 linhas: as salvas e, se faltar, os pontos INÍCIO e FIM do mapa.
         $linhas = $salvas ?: [
             ['nome' => 'INÍCIO (topo do mapa, acima do Palco)', 'x' => 653, 'y' => 100, 'lat' => null, 'lng' => null],
-            ['nome' => 'FIM (base do mapa, abaixo do Rosário)', 'x' => 651, 'y' => 4048, 'lat' => null, 'lng' => null],
+            ['nome' => 'FIM (marcador na base do mapa)', 'x' => 651, 'y' => 3600, 'lat' => null, 'lng' => null],
         ];
         while (count($linhas) < 4) {
             $linhas[] = ['nome' => '', 'x' => null, 'y' => null, 'lat' => null, 'lng' => null];
@@ -30,8 +30,8 @@ class MapaController extends Controller
         $request->validate([
             'pontos' => ['required', 'array', 'max:8'],
             'pontos.*.nome' => ['nullable', 'string', 'max:80'],
-            'pontos.*.x' => ['nullable', 'numeric', 'between:0,1274'],
-            'pontos.*.y' => ['nullable', 'numeric', 'between:0,4071'],
+            'pontos.*.x' => ['nullable', 'numeric', 'between:0,'.config('festival.mapa.w')],
+            'pontos.*.y' => ['nullable', 'numeric', 'between:0,'.config('festival.mapa.h')],
             'pontos.*.lat' => ['nullable', 'numeric', 'between:-90,90'],
             'pontos.*.lng' => ['nullable', 'numeric', 'between:-180,180'],
         ]);

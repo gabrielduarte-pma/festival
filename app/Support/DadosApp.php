@@ -34,7 +34,7 @@ class DadosApp
 
     public static function stands(): array
     {
-        return Stand::where('ativo', true)->orderBy('id')->get()->map(fn ($s) => [
+        return Stand::where('ativo', true)->orderBy('id')->get()->filter(fn ($s) => $s->noMapa())->map(fn ($s) => [
             'id' => $s->id,
             'nome' => $s->nome,
             'cat' => $s->categoria,
@@ -71,6 +71,8 @@ class DadosApp
     {
         $base = json_decode(file_get_contents(database_path('data/mapa.json')), true);
         $base['src'] = '/assets/mapa.svg';
+        $base['w'] = config('festival.mapa.w');
+        $base['h'] = config('festival.mapa.h');
         $base['ancoras'] = array_values(Configuracao::obter('mapa_ancoras', []));
 
         return $base;

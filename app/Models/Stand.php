@@ -64,4 +64,15 @@ class Stand extends Model
 
         return $this->cardapio_path ? '/storage/'.$this->cardapio_path : null;
     }
+
+    /** O retângulo do stand cabe dentro do desenho atual do mapa? */
+    public function noMapa(): bool
+    {
+        $w = config('festival.mapa.w');
+        $h = config('festival.mapa.h');
+
+        return $this->rect_x >= 0 && $this->rect_y >= 0
+            && $this->rect_x + $this->rect_w <= $w
+            && $this->rect_y + $this->rect_h <= $h;
+    }
 }
