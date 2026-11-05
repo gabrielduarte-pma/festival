@@ -269,10 +269,11 @@ function clearSel(){mp.sel=null;mp.route=false;drawOverlay();renderSheet();}
 function renderSheet(){
   var sh=document.getElementById('sheet'); if(!sh)return;
   if(!mp.sel){
+    var gpsOn=mp.watch!=null||store('gps')===true;
     sh.className='sheet idle';
     sh.innerHTML='<div class="sh-row"><div class="sh-txt"><b>Toque num lote ou escolha um stand</b><small>Arraste para mover, use dois dedos para aproximar.</small></div>'+
       '<button class="btn ghost" data-act="where">'+(mp.pos?'Mudar posição':'Marcar onde estou')+'</button></div>'+
-      (AFF?'<button class="btn" data-act="gps">Usar minha localização</button>':'');
+      (AFF?(gpsOn?'<div style="margin-top:6px;font-size:12px;opacity:.75;display:flex;justify-content:space-between;align-items:center"><span>📍 Localização ativa</span><button data-act="gpsoff" style="background:none;border:0;color:inherit;text-decoration:underline;font:inherit;padding:4px 0">desligar</button></div>':'<button class="btn" data-act="gps">Usar minha localização</button>'):'');
     return;
   }
   var t=mp.sel, sub=[];
@@ -437,7 +438,8 @@ function mapAction(a){
   if(a==='close')clearSel();
   else if(a==='route'){mp.route=!mp.route;if(mp.route&&!mp.pos){mp.placing=true;setHint('Toque no mapa onde você está agora');}drawOverlay();renderSheet();}
   else if(a==='where'){mp.placing=true;setHint('Toque no mapa onde você está agora');}
-  else if(a==='gps'){store('gps',true);startGps();}
+  else if(a==='gps'){store('gps',true);startGps();renderSheet();}
+  else if(a==='gpsoff'){store('gps',false);stopGps();mp.gps=false;mp.pos=null;setHint('');drawOverlay();renderSheet();}
 }
 
 
