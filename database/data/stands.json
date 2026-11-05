@@ -1,0 +1,1906 @@
+[
+ {
+  "nome": "Major Brasa Drinks e Churrasco",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   342,
+   154,
+   118,
+   176
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 1,
+  "ref": "Palco"
+ },
+ {
+  "nome": "Restaurante Mangueiral",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   342,
+   558,
+   118,
+   84
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 2,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Boteco Lounge",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   342,
+   558,
+   118,
+   84
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 3,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Di Lucca Pizzaria",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   342,
+   642,
+   117,
+   41
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 4,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Beco da Alegria",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   342,
+   642,
+   117,
+   41
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 5,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Wine beer",
+  "cat": "Bebidas",
+  "num": "520",
+  "rect": [
+   342,
+   781,
+   117,
+   49
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 6,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Aqui em Casa - Pastla",
+  "cat": "Gastronomia",
+  "num": "520",
+  "rect": [
+   342,
+   781,
+   117,
+   49
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 7,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Antigo NAEI",
+  "cat": "Outros",
+  "num": "538",
+  "rect": [
+   342,
+   830,
+   117,
+   49
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 8,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Casa da Cultura",
+  "cat": "Cultura",
+  "num": "550",
+  "rect": [
+   342,
+   928,
+   117,
+   50
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 9,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Mandnhoc",
+  "cat": "Gastronomia",
+  "num": "550",
+  "rect": [
+   342,
+   928,
+   117,
+   50
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 10,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Marinesartflé",
+  "cat": "Artesanato",
+  "num": "590",
+  "rect": [
+   342,
+   1170,
+   118,
+   45
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 11,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Bonari",
+  "cat": "Outros",
+  "num": "594",
+  "rect": [
+   342,
+   1215,
+   118,
+   46
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 12,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Dindins da Kat",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   346,
+   1261,
+   110,
+   249
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 13,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Dim dim e Guloseimas",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   346,
+   1261,
+   110,
+   249
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 14,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Residência",
+  "cat": "Outros",
+  "num": "654",
+  "rect": [
+   342,
+   1614,
+   118,
+   34
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 15,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "House drinks",
+  "cat": "Bebidas",
+  "num": "660",
+  "rect": [
+   342,
+   1648,
+   118,
+   35
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 16,
+  "ref": ""
+ },
+ {
+  "nome": "Kuka Suspiro",
+  "cat": "Gastronomia",
+  "num": "670",
+  "rect": [
+   342,
+   1717,
+   118,
+   35
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 17,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Caramelito",
+  "cat": "Gastronomia",
+  "num": "680",
+  "rect": [
+   342,
+   1786,
+   118,
+   35
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 18,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "SEFAZ",
+  "cat": "Serviços",
+  "num": "696",
+  "rect": [
+   342,
+   1858,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 19,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Desfile",
+  "cat": "Cultura",
+  "num": "696",
+  "rect": [
+   342,
+   1858,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 20,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "IQUAMA",
+  "cat": "Serviços",
+  "num": "720",
+  "rect": [
+   342,
+   2007,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 21,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Restaurante do TOBY",
+  "cat": "Gastronomia",
+  "num": "720",
+  "rect": [
+   342,
+   2007,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 22,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Mais Educação",
+  "cat": "Serviços",
+  "num": "726",
+  "rect": [
+   342,
+   2044,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 23,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Fraldário",
+  "cat": "Serviços",
+  "num": "726",
+  "rect": [
+   342,
+   2044,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 24,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Tereza Zaranza",
+  "cat": "Outros",
+  "num": "736",
+  "rect": [
+   342,
+   2119,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 25,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Espaço Geek: Sertão Conectado",
+  "cat": "Cultura",
+  "num": "",
+  "rect": [
+   347,
+   2406,
+   111,
+   192
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 26,
+  "ref": "Aracaty Club"
+ },
+ {
+  "nome": "DicPan",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   347,
+   2406,
+   111,
+   192
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 27,
+  "ref": "Aracaty Club"
+ },
+ {
+  "nome": "Major Brasa",
+  "cat": "Gastronomia",
+  "num": "802",
+  "rect": [
+   342,
+   2601,
+   118,
+   48
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 28,
+  "ref": "Aracaty Club"
+ },
+ {
+  "nome": "Feira Arte e Sabor",
+  "cat": "Artesanato",
+  "num": "",
+  "rect": [
+   324,
+   2803,
+   136,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 29,
+  "ref": "Beco das Uvas"
+ },
+ {
+  "nome": "Casa do Anterinho",
+  "cat": "Outros",
+  "num": "912",
+  "rect": [
+   342,
+   3189,
+   118,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 30,
+  "ref": ""
+ },
+ {
+  "nome": "Biblioteca",
+  "cat": "Cultura",
+  "num": "",
+  "rect": [
+   342,
+   3528,
+   117,
+   36
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "L",
+  "id": 31,
+  "ref": "Self Point"
+ },
+ {
+  "nome": "Point Certo",
+  "cat": "Outros",
+  "num": "",
+  "rect": [
+   842,
+   454,
+   117,
+   38
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 32,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Mega Açaí",
+  "cat": "Gastronomia",
+  "num": "489",
+  "rect": [
+   842,
+   647,
+   117,
+   36
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 33,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Penelope Drinks",
+  "cat": "Bebidas",
+  "num": "495",
+  "rect": [
+   842,
+   683,
+   117,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 34,
+  "ref": ""
+ },
+ {
+  "nome": "Carangueijou",
+  "cat": "Gastronomia",
+  "num": "511",
+  "rect": [
+   842,
+   793,
+   117,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 35,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Fogaça",
+  "cat": "Gastronomia",
+  "num": "517",
+  "rect": [
+   842,
+   830,
+   117,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 36,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Shallom",
+  "cat": "Gastronomia",
+  "num": "517",
+  "rect": [
+   842,
+   830,
+   117,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 37,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Galeria Pague Menos",
+  "cat": "Serviços",
+  "num": "",
+  "rect": [
+   842,
+   867,
+   117,
+   36
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 38,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Lavalley's",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   842,
+   867,
+   117,
+   36
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 39,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Suspiros da Noah",
+  "cat": "Gastronomia",
+  "num": "549",
+  "rect": [
+   842,
+   940,
+   117,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 40,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Flá Gourmet",
+  "cat": "Gastronomia",
+  "num": "549",
+  "rect": [
+   842,
+   940,
+   117,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 41,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Espaço Artesanato",
+  "cat": "Artesanato",
+  "num": "",
+  "rect": [
+   842,
+   985,
+   136,
+   40
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 42,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Casa da Vânia Uchoa",
+  "cat": "Outros",
+  "num": "563",
+  "rect": [
+   842,
+   1034,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 43,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Restaurante Vila Braga",
+  "cat": "Gastronomia",
+  "num": "563",
+  "rect": [
+   842,
+   1034,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 44,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Chave do Tamanho",
+  "cat": "Outros",
+  "num": "607",
+  "rect": [
+   842,
+   1271,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 45,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Centro Comercial Marcelo",
+  "cat": "Serviços",
+  "num": "629",
+  "rect": [
+   842,
+   1413,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 46,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Macavi",
+  "cat": "Outros",
+  "num": "",
+  "rect": [
+   842,
+   1460,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 47,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Cervejaria Dragão do Mar",
+  "cat": "Bebidas",
+  "num": "651",
+  "rect": [
+   842,
+   1555,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 48,
+  "ref": ""
+ },
+ {
+  "nome": "Don Fuego",
+  "cat": "Gastronomia",
+  "num": "657",
+  "rect": [
+   842,
+   1602,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 49,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Restaurante o Nain",
+  "cat": "Gastronomia",
+  "num": "663",
+  "rect": [
+   842,
+   1649,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 50,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Açaí do Porto",
+  "cat": "Gastronomia",
+  "num": "669",
+  "rect": [
+   842,
+   1696,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 51,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Bolos da Eli",
+  "cat": "Gastronomia",
+  "num": "685",
+  "rect": [
+   842,
+   1790,
+   117,
+   47
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 52,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Mari Reis Doces Artesanais",
+  "cat": "Gastronomia",
+  "num": "711",
+  "rect": [
+   842,
+   1926,
+   117,
+   34
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 53,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Vera Artesanato",
+  "cat": "Artesanato",
+  "num": "719",
+  "rect": [
+   842,
+   1993,
+   117,
+   33
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 54,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Sal & Mar",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   845,
+   2127,
+   111,
+   55
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 55,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Sal e Mar",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   842,
+   2193,
+   136,
+   30
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 56,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Doce cereja",
+  "cat": "Gastronomia",
+  "num": "757",
+  "rect": [
+   845,
+   2234,
+   111,
+   76
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 57,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Coco da Terra",
+  "cat": "Gastronomia",
+  "num": "769",
+  "rect": [
+   842,
+   2313,
+   117,
+   49
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 58,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Café Maria Elisa",
+  "cat": "Gastronomia",
+  "num": "769",
+  "rect": [
+   842,
+   2313,
+   117,
+   49
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 59,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Bobó de Camarão",
+  "cat": "Gastronomia",
+  "num": "773",
+  "rect": [
+   842,
+   2362,
+   117,
+   48
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 60,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Quimanga Forum",
+  "cat": "Outros",
+  "num": "789",
+  "rect": [
+   842,
+   2459,
+   117,
+   49
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 61,
+  "ref": "Aracaty Club"
+ },
+ {
+  "nome": "Penelope Drinks",
+  "cat": "Bebidas",
+  "num": "807",
+  "rect": [
+   842,
+   2557,
+   117,
+   49
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 62,
+  "ref": "Beco das Flores"
+ },
+ {
+  "nome": "Ótica K2",
+  "cat": "Serviços",
+  "num": "819",
+  "rect": [
+   842,
+   2655,
+   117,
+   48
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 63,
+  "ref": "Beco das Flores"
+ },
+ {
+  "nome": "K2 Gelateria",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   840,
+   2712,
+   136,
+   37
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 64,
+  "ref": "Beco das Flores"
+ },
+ {
+  "nome": "Rádio Cultura",
+  "cat": "Cultura",
+  "num": "s/n",
+  "rect": [
+   842,
+   2796,
+   117,
+   40
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 65,
+  "ref": "Beco das Flores"
+ },
+ {
+  "nome": "Agricultura Familiar",
+  "cat": "Serviços",
+  "num": "",
+  "rect": [
+   842,
+   2836,
+   117,
+   40
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 66,
+  "ref": "Beco das Flores"
+ },
+ {
+  "nome": "Instituto Manuel Braga",
+  "cat": "Serviços",
+  "num": "",
+  "rect": [
+   842,
+   2836,
+   117,
+   40
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 67,
+  "ref": "Beco das Flores"
+ },
+ {
+  "nome": "Bitwave",
+  "cat": "Serviços",
+  "num": "",
+  "rect": [
+   842,
+   3070,
+   117,
+   40
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 68,
+  "ref": ""
+ },
+ {
+  "nome": "Rosário",
+  "cat": "Outros",
+  "num": "",
+  "rect": [
+   842,
+   3977,
+   117,
+   42
+  ],
+  "ilha": null,
+  "pos": null,
+  "lado": "R",
+  "id": 69,
+  "ref": "Rosário"
+ },
+ {
+  "nome": "Delícias da Terra",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   574,
+   18,
+   17
+  ],
+  "ilha": 1,
+  "pos": 1,
+  "lado": null,
+  "id": 70,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Mr. Burguer Aracati",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   591,
+   18,
+   17
+  ],
+  "ilha": 1,
+  "pos": 2,
+  "lado": null,
+  "id": 71,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Ky delícia Pizza Burguer",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   607,
+   18,
+   17
+  ],
+  "ilha": 1,
+  "pos": 3,
+  "lado": null,
+  "id": 72,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Ocas do Indio",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   624,
+   18,
+   17
+  ],
+  "ilha": 1,
+  "pos": 4,
+  "lado": null,
+  "id": 73,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Cozinha da dona Preta",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   640,
+   18,
+   17
+  ],
+  "ilha": 1,
+  "pos": 5,
+  "lado": null,
+  "id": 74,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Marmitaria MC",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   657,
+   18,
+   17
+  ],
+  "ilha": 1,
+  "pos": 6,
+  "lado": null,
+  "id": 75,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "1033 Pizza",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   674,
+   18,
+   17
+  ],
+  "ilha": 1,
+  "pos": 7,
+  "lado": null,
+  "id": 76,
+  "ref": "Câmara"
+ },
+ {
+  "nome": "Pizzaçaí Express",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   664,
+   839,
+   18,
+   17
+  ],
+  "ilha": 2,
+  "pos": 1,
+  "lado": null,
+  "id": 77,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Açaí do Silas",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   664,
+   856,
+   18,
+   17
+  ],
+  "ilha": 2,
+  "pos": 2,
+  "lado": null,
+  "id": 78,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Rest. e Pizzaria Esperança",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   664,
+   872,
+   18,
+   17
+  ],
+  "ilha": 2,
+  "pos": 3,
+  "lado": null,
+  "id": 79,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Donna Batata",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   664,
+   889,
+   18,
+   17
+  ],
+  "ilha": 2,
+  "pos": 4,
+  "lado": null,
+  "id": 80,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Delícias da Praia",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   664,
+   906,
+   18,
+   17
+  ],
+  "ilha": 2,
+  "pos": 5,
+  "lado": null,
+  "id": 81,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Acarajé da Cobra",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   664,
+   922,
+   18,
+   17
+  ],
+  "ilha": 2,
+  "pos": 6,
+  "lado": null,
+  "id": 82,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Garfo com letras",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   664,
+   939,
+   18,
+   17
+  ],
+  "ilha": 2,
+  "pos": 7,
+  "lado": null,
+  "id": 83,
+  "ref": "Beco Dimola"
+ },
+ {
+  "nome": "Canoa Grego",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1494,
+   18,
+   17
+  ],
+  "ilha": 3,
+  "pos": 1,
+  "lado": null,
+  "id": 84,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Hot Burguer",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1510,
+   18,
+   17
+  ],
+  "ilha": 3,
+  "pos": 2,
+  "lado": null,
+  "id": 85,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Açaírado",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1527,
+   18,
+   17
+  ],
+  "ilha": 3,
+  "pos": 3,
+  "lado": null,
+  "id": 86,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "Hamburgueria Don Gordon",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1543,
+   18,
+   17
+  ],
+  "ilha": 3,
+  "pos": 4,
+  "lado": null,
+  "id": 87,
+  "ref": "Praça Dr. Leite"
+ },
+ {
+  "nome": "La Parrila Burguer",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1744,
+   18,
+   17
+  ],
+  "ilha": 4,
+  "pos": 1,
+  "lado": null,
+  "id": 88,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Hermanito",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1761,
+   18,
+   17
+  ],
+  "ilha": 4,
+  "pos": 2,
+  "lado": null,
+  "id": 89,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Casarão do Sanduíche",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1777,
+   18,
+   17
+  ],
+  "ilha": 4,
+  "pos": 3,
+  "lado": null,
+  "id": 90,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Vanessa Gourmet",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1794,
+   18,
+   17
+  ],
+  "ilha": 4,
+  "pos": 4,
+  "lado": null,
+  "id": 91,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Salt Japanese",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   1810,
+   18,
+   17
+  ],
+  "ilha": 4,
+  "pos": 5,
+  "lado": null,
+  "id": 92,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Olympia",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   662,
+   1996,
+   18,
+   17
+  ],
+  "ilha": 5,
+  "pos": 1,
+  "lado": null,
+  "id": 93,
+  "ref": "Teatro"
+ },
+ {
+  "nome": "Dety Delivery",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   662,
+   2012,
+   18,
+   17
+  ],
+  "ilha": 5,
+  "pos": 2,
+  "lado": null,
+  "id": 94,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Vitória Mix Pizzaburguer",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   662,
+   2029,
+   18,
+   17
+  ],
+  "ilha": 5,
+  "pos": 3,
+  "lado": null,
+  "id": 95,
+  "ref": "Museu"
+ },
+ {
+  "nome": "TM - Lanches Lumara Maciel",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   662,
+   2045,
+   18,
+   17
+  ],
+  "ilha": 5,
+  "pos": 4,
+  "lado": null,
+  "id": 96,
+  "ref": "Museu"
+ },
+ {
+  "nome": "La Spaghetti",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   662,
+   2062,
+   18,
+   17
+  ],
+  "ilha": 5,
+  "pos": 5,
+  "lado": null,
+  "id": 97,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Sushi do Chan",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   662,
+   2078,
+   18,
+   17
+  ],
+  "ilha": 5,
+  "pos": 6,
+  "lado": null,
+  "id": 98,
+  "ref": "Museu"
+ },
+ {
+  "nome": "Aqui que é bom",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   2282,
+   18,
+   17
+  ],
+  "ilha": 6,
+  "pos": 1,
+  "lado": null,
+  "id": 99,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Salt Burguer",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   2299,
+   18,
+   17
+  ],
+  "ilha": 6,
+  "pos": 2,
+  "lado": null,
+  "id": 100,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Leticia Salgados",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   2315,
+   18,
+   17
+  ],
+  "ilha": 6,
+  "pos": 3,
+  "lado": null,
+  "id": 101,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Dilene Lanches",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   2332,
+   18,
+   17
+  ],
+  "ilha": 6,
+  "pos": 4,
+  "lado": null,
+  "id": 102,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Pastel da Nega",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   615,
+   2348,
+   18,
+   17
+  ],
+  "ilha": 6,
+  "pos": 5,
+  "lado": null,
+  "id": 103,
+  "ref": "Espaço das Artes"
+ },
+ {
+  "nome": "Coopervej",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   2890,
+   18,
+   17
+  ],
+  "ilha": 7,
+  "pos": 1,
+  "lado": null,
+  "id": 104,
+  "ref": "Beco das Uvas"
+ },
+ {
+  "nome": "Bodega Agricultura Familiar",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   2906,
+   18,
+   17
+  ],
+  "ilha": 7,
+  "pos": 2,
+  "lado": null,
+  "id": 105,
+  "ref": "Beco das Uvas"
+ },
+ {
+  "nome": "Ponto do Pastel",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   2923,
+   18,
+   17
+  ],
+  "ilha": 7,
+  "pos": 3,
+  "lado": null,
+  "id": 106,
+  "ref": "Beco das Uvas"
+ },
+ {
+  "nome": "Pantera Lanches",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   2940,
+   18,
+   17
+  ],
+  "ilha": 7,
+  "pos": 4,
+  "lado": null,
+  "id": 107,
+  "ref": "Beco das Uvas"
+ },
+ {
+  "nome": "GDM - Salgados",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   2956,
+   18,
+   17
+  ],
+  "ilha": 7,
+  "pos": 5,
+  "lado": null,
+  "id": 108,
+  "ref": "Beco das Uvas"
+ },
+ {
+  "nome": "Point Tia Célia",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   3087,
+   18,
+   17
+  ],
+  "ilha": 8,
+  "pos": 1,
+  "lado": null,
+  "id": 109,
+  "ref": ""
+ },
+ {
+  "nome": "Di Lucca",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   3104,
+   18,
+   17
+  ],
+  "ilha": 8,
+  "pos": 2,
+  "lado": null,
+  "id": 110,
+  "ref": ""
+ },
+ {
+  "nome": "Barraca Luz",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   3120,
+   18,
+   17
+  ],
+  "ilha": 8,
+  "pos": 3,
+  "lado": null,
+  "id": 111,
+  "ref": ""
+ },
+ {
+  "nome": "La Fogazza",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   3137,
+   18,
+   17
+  ],
+  "ilha": 8,
+  "pos": 4,
+  "lado": null,
+  "id": 112,
+  "ref": ""
+ },
+ {
+  "nome": "Restaurante Ricarte",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   614,
+   3154,
+   18,
+   17
+  ],
+  "ilha": 8,
+  "pos": 5,
+  "lado": null,
+  "id": 113,
+  "ref": ""
+ },
+ {
+  "nome": "Restaurante o Oscar",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   3295,
+   18,
+   17
+  ],
+  "ilha": 9,
+  "pos": 1,
+  "lado": null,
+  "id": 114,
+  "ref": "Self Point"
+ },
+ {
+  "nome": "CasaVeg",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   3311,
+   18,
+   17
+  ],
+  "ilha": 9,
+  "pos": 2,
+  "lado": null,
+  "id": 115,
+  "ref": "Self Point"
+ },
+ {
+  "nome": "Trip Burguer",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   3328,
+   18,
+   17
+  ],
+  "ilha": 9,
+  "pos": 3,
+  "lado": null,
+  "id": 116,
+  "ref": "Self Point"
+ },
+ {
+  "nome": "Pizzaria Evolução",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   3344,
+   18,
+   17
+  ],
+  "ilha": 9,
+  "pos": 4,
+  "lado": null,
+  "id": 117,
+  "ref": "Self Point"
+ },
+ {
+  "nome": "Casa das marisqueiras",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   3361,
+   18,
+   17
+  ],
+  "ilha": 9,
+  "pos": 5,
+  "lado": null,
+  "id": 118,
+  "ref": "Self Point"
+ },
+ {
+  "nome": "Sam mar Alimentos",
+  "cat": "Gastronomia",
+  "num": "",
+  "rect": [
+   665,
+   3377,
+   18,
+   17
+  ],
+  "ilha": 9,
+  "pos": 6,
+  "lado": null,
+  "id": 119,
+  "ref": "Self Point"
+ }
+]
