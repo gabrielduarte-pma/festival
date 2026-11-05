@@ -188,3 +188,9 @@ body.mapmode main>*{animation:none}
 .sh-list a{display:flex;align-items:center;gap:6px}
 .sh-list a span{margin-left:auto;color:var(--accent);font-weight:800}
 .btn.prof{width:100%;margin-top:12px;flex:none}
+
+.dbg{position:absolute;left:8px;top:54px;z-index:9;max-width:min(92%,360px);padding:8px 10px;border-radius:10px;background:rgba(1,36,104,.92);color:#fff;font:11px/1.45 ui-monospace,Menlo,Consolas,monospace;box-shadow:0 4px 14px rgba(0,0,0,.3);touch-action:auto}
+.dbg b{color:#F5A623}.dbg .dbgb{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.dbg button{font:inherit;font-weight:700;padding:5px 8px;border-radius:7px;border:0;background:#F5A623;color:#012468}
+.dbg textarea{width:100%;height:120px;margin-top:6px;font:10px/1.3 ui-monospace,monospace;background:#fff;color:#000;border-radius:6px;border:0}
+.dbg textarea[hidden]{display:none}
