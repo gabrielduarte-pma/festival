@@ -296,7 +296,7 @@ function renderSheet(){
     '<button class="btn ghost" data-act="where">'+(mp.pos?'Mudar posição':'Marcar onde estou')+'</button></div>';
 }
 
-function setHint(txt){var h=document.getElementById('maphint');if(!h)return;h.textContent=txt||'';h.hidden=!txt;}
+function setHint(txt){var h=document.getElementById('maphint');if(!h)return;if(DEBUG)txt='';h.textContent=txt||'';h.hidden=!txt;}
 function setPos(p,save){mp.pos=p;if(save!==false)store('pos',p);mp.placing=false;setHint('');drawOverlay();renderSheet();}
 
 function startGps(){
@@ -333,10 +333,10 @@ function dbgReport(){
 }
 function dbgRender(){
   var box=document.getElementById('dbg');if(!box)return;var d=mp.dbg,h='';
-  if(!d||d.erro){h='<b>DEBUG</b> aguardando GPS…'+(d&&d.erro?'<br>'+esc(d.erro):'');}
+  if(!d||d.erro){h='aguardando GPS…'+(d&&d.erro?'<br>'+esc(d.erro):'');}
   else{
     var p=d.p,n=dbgNearest(p),ins=p&&p.x>150&&p.x<M.w-80&&p.y>0&&p.y<M.h;
-    h='<b>DEBUG GPS</b> #'+d.n+' · '+new Date(d.t).toLocaleTimeString()+
+    h='#'+d.n+' · '+new Date(d.t).toLocaleTimeString()+
       '<br>lat <b>'+d.lat.toFixed(6)+'</b> lng <b>'+d.lng.toFixed(6)+'</b>'+
       '<br>precisão ±<b>'+Math.round(d.acc)+' m</b>'+(d.spd!=null?' · '+(d.spd*3.6).toFixed(1)+' km/h':'')+
       '<br>mapa x <b>'+(p?Math.round(p.x):'—')+'</b> y <b>'+(p?Math.round(p.y):'—')+'</b> · '+(p?(ins?'dentro':'FORA da área'):'sem calibração ('+(M.ancoras||[]).length+' pontos)')+
@@ -345,12 +345,15 @@ function dbgRender(){
   }
   h+='<div class="dbgb"><button data-d="reg">Registrar ponto</button><button data-d="rep">Relatório ('+dbgSamples().length+')</button><button data-d="clr">Limpar</button><button data-d="off">Sair</button></div><textarea id="dbgt" readonly hidden></textarea>';
   var ta=document.getElementById('dbgt'),keep=ta&&!ta.hidden?ta.value:null;
+  h='<div style="display:flex;justify-content:space-between;align-items:center"><b>DEBUG GPS</b><button data-d="min">'+(box.classList.contains('min')?'abrir ▾':'recolher ▴')+'</button></div><div class="dbgbody">'+h+'</div>';
   box.innerHTML=h;
   if(keep!==null){var t2=document.getElementById('dbgt');t2.hidden=false;t2.value=keep;}
 }
 function dbgInit(){
   if(!DEBUG||document.getElementById('dbg'))return;
-  var box=document.createElement('div');box.id='dbg';box.className='dbg';mp.vp.appendChild(box);
+  var st=document.createElement('style');st.textContent='#dbg{position:fixed!important;left:6px!important;right:70px!important;z-index:60!important;padding:8px 10px!important;border-radius:10px!important;background:#012468!important;color:#fff!important;font:12px/1.45 ui-monospace,Menlo,Consolas,monospace!important;box-shadow:0 4px 16px rgba(0,0,0,.45)!important;max-height:42vh;overflow:auto;touch-action:auto}#dbg *{font-family:inherit}#dbg b{color:#F5A623!important}#dbg .dbgb{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}#dbg button{font:700 12px/1 ui-monospace,Menlo,monospace!important;padding:7px 9px!important;border-radius:7px!important;border:0!important;background:#F5A623!important;color:#012468!important;width:auto!important;height:auto!important}#dbg textarea{display:block;width:100%;height:110px;margin-top:6px;font:10px/1.3 ui-monospace,monospace;background:#fff;color:#000;border-radius:6px;border:0}#dbg textarea[hidden]{display:none}#dbg.min .dbgbody{display:none}';document.head.appendChild(st);
+  var box=document.createElement('div');box.id='dbg';box.className='dbg';document.body.appendChild(box);
+  function pos(){var t=document.querySelector('.maptop');box.style.top=((t?t.getBoundingClientRect().bottom:90)+6)+'px';}pos();window.addEventListener('resize',pos);
   box.addEventListener('click',function(e){
     var a=e.target.getAttribute&&e.target.getAttribute('data-d');if(!a)return;
     if(a==='reg'){
@@ -359,6 +362,7 @@ function dbgInit(){
     }else if(a==='rep'){
       var t=document.getElementById('dbgt'),txt=dbgReport();t.hidden=false;t.value=txt;t.focus();t.select();try{navigator.clipboard.writeText(txt).catch(function(){});}catch(x){}
     }else if(a==='clr'){store('dbg_samples',[]);dbgRender();}
+    else if(a==='min'){box.classList.toggle('min');dbgRender();}
     else if(a==='off'){try{localStorage.setItem('debug','0');}catch(x){}location.href=location.pathname+'?debug=0#mapa';}
   });
   startGps();dbgRender();
