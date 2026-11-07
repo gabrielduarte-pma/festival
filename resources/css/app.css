@@ -141,3 +141,40 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* ---------- Identidade do Festival (login e telas de autenticação) ---------- */
+.festival-auth-bg {
+    background: linear-gradient(180deg, #012a78 0%, #01348d 45%, #012468 100%) fixed;
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.festival-auth-card {
+    --background: #ffffff;
+    --foreground: #012468;
+    --card: #ffffff;
+    --card-foreground: #012468;
+    --popover: #ffffff;
+    --popover-foreground: #012468;
+    --primary: #f5a623;
+    --primary-foreground: #012468;
+    --secondary: #e9eefb;
+    --secondary-foreground: #012468;
+    --muted: #e9eefb;
+    --muted-foreground: #5a6b94;
+    --accent: #e9eefb;
+    --accent-foreground: #012468;
+    --border: #cfd9f1;
+    --input: #cfd9f1;
+    --ring: #0a47c9;
+    background: #ffffff;
+    color: #012468;
+    color-scheme: light;
+}
+
+.festival-auth-card a {
+    color: #0a47c9;
+}
+
+.festival-auth-card button[type='submit'] {
+    font-weight: 800;
+}

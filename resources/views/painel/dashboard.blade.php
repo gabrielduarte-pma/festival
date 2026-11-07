@@ -8,6 +8,11 @@
   <div class="card"><div class="num">{{ $comFoto }}</div>com foto</div>
   <div class="card"><div class="num">{{ $expositores }}</div>expositores <div class="mut">{{ $pendentes }} ainda não criaram senha</div></div>
 </div>
+<h2>E-mail</h2>
+<div class="card" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+  <div style="flex:1;min-width:220px"><b>Teste de envio</b><div class="mut">Manda um e-mail de teste para {{ auth()->user()->email }} e confirma se o Brevo está funcionando.</div></div>
+  <form method="post" action="{{ route('painel.email-teste') }}">@csrf<button class="btn sec">Enviar e-mail de teste</button></form>
+</div>
 <h2>Últimas alterações</h2>
 <div class="card">
 @forelse($recentes as $a)

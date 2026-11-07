@@ -49,6 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail, PasskeyUser
             'two_factor_confirmed_at' => 'datetime',
             'ativo' => 'boolean',
             'invite_expires_at' => 'datetime',
+            'convite_enviado_em' => 'datetime',
         ];
     }
 

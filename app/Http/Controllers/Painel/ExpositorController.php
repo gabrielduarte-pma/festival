@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Painel;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ConviteExpositor;
 use App\Models\Stand;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -43,11 +45,15 @@ class ExpositorController extends Controller
         $user->save();
         $user->stands()->sync($dados['stands'] ?? []);
 
-        $token = $user->gerarConvite();
+        $link = url('/convite/'.$user->gerarConvite());
 
-        return redirect()->route('painel.expositores.edit', $user)
-            ->with('ok', 'Expositor criado. Envie o link de convite abaixo.')
-            ->with('convite', url('/convite/'.$token));
+        $redirect = redirect()->route('painel.expositores.edit', $user)->with('convite', $link);
+
+        if ($request->boolean('enviar_email')) {
+            return $this->comResultadoEnvio($redirect, $user, $link, 'Expositor criado. ');
+        }
+
+        return $redirect->with('ok', 'Expositor criado. Envie o link de convite abaixo.');
     }
 
     public function edit(User $expositor)
@@ -77,14 +83,19 @@ class ExpositorController extends Controller
         return back()->with('ok', 'Expositor salvo.');
     }
 
-    /** Gera um novo link (serve para primeiro acesso e para quem esqueceu a senha). */
-    public function convite(User $expositor)
+    /** Gera um novo link (primeiro acesso ou senha esquecida). Com enviar=1 também manda por e-mail. */
+    public function convite(Request $request, User $expositor)
     {
         abort_if($expositor->isAdmin(), 404);
-        $token = $expositor->gerarConvite();
+        $link = url('/convite/'.$expositor->gerarConvite());
 
-        return back()->with('ok', 'Novo link gerado (válido por '.config('festival.convite_dias').' dias).')
-            ->with('convite', url('/convite/'.$token));
+        $redirect = back()->with('convite', $link);
+
+        if ($request->boolean('enviar')) {
+            return $this->comResultadoEnvio($redirect, $expositor, $link);
+        }
+
+        return $redirect->with('ok', 'Novo link gerado (válido por '.config('festival.convite_dias').' dias). O link anterior deixou de valer.');
     }
 
     public function destroy(User $expositor)
@@ -93,6 +104,21 @@ class ExpositorController extends Controller
         $expositor->delete();
 
         return redirect()->route('painel.expositores.index')->with('ok', 'Expositor removido.');
+    }
+
+    /** Envia o convite por e-mail e devolve o redirect com a confirmação (ou o aviso de falha). */
+    private function comResultadoEnvio($redirect, User $user, string $link, string $prefixo = '')
+    {
+        try {
+            Mail::to($user->email)->send(new ConviteExpositor($user, $link));
+            $user->forceFill(['convite_enviado_em' => now()])->save();
+
+            return $redirect->with('ok', $prefixo.'✔ E-mail enviado para '.$user->email.' às '.now()->format('H:i').'. O link também está abaixo, caso queira mandar pelo WhatsApp.');
+        } catch (\Throwable $e) {
+            report($e);
+
+            return $redirect->with('aviso', $prefixo.'O e-mail NÃO foi enviado para '.$user->email.' ('.Str::limit($e->getMessage(), 180).'). Copie o link abaixo e envie manualmente, ou confira as configurações de e-mail.');
+        }
     }
 
     private function validar(Request $request, ?User $atual = null): array

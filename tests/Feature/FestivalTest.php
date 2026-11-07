@@ -6,7 +6,9 @@ use App\Models\Stand;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\ConviteExpositor;
 use Tests\TestCase;
 
 class FestivalTest extends TestCase
@@ -120,5 +122,49 @@ class FestivalTest extends TestCase
         ]])->assertSessionHasNoErrors();
 
         $this->get('/dados.js')->assertSee('-4.56', false);
+    }
+
+    public function test_creating_exhibitor_sends_invite_email_and_confirms()
+    {
+        Mail::fake();
+        $stand = $this->stand();
+        $this->actingAs(User::factory()->create(['role' => 'admin']));
+
+        $this->post('/painel/expositores', ['name' => 'Maria', 'email' => 'maria@example.com', 'stands' => [$stand->id], 'enviar_email' => 1])
+            ->assertSessionHas('ok', fn ($m) => str_contains($m, 'E-mail enviado para maria@example.com'))
+            ->assertSessionHas('convite');
+
+        Mail::assertSent(ConviteExpositor::class, fn ($m) => $m->hasTo('maria@example.com') && str_contains($m->link, '/convite/'));
+        $this->assertNotNull(User::where('email', 'maria@example.com')->first()->convite_enviado_em);
+    }
+
+    public function test_without_email_checkbox_nothing_is_sent()
+    {
+        Mail::fake();
+        $this->actingAs(User::factory()->create(['role' => 'admin']));
+
+        $this->post('/painel/expositores', ['name' => 'João', 'email' => 'joao@example.com'])->assertSessionHas('convite');
+
+        Mail::assertNothingSent();
+    }
+
+    public function test_regenerate_link_can_send_email()
+    {
+        Mail::fake();
+        $this->actingAs(User::factory()->create(['role' => 'admin']));
+        $exp = User::factory()->create(['role' => 'expositor', 'email' => 'ana@example.com']);
+
+        $this->post("/painel/expositores/{$exp->id}/convite", ['enviar' => 1])->assertSessionHas('ok');
+
+        Mail::assertSent(ConviteExpositor::class, fn ($m) => $m->hasTo('ana@example.com'));
+    }
+
+    public function test_email_failure_shows_warning_and_keeps_link()
+    {
+        $this->actingAs(User::factory()->create(['role' => 'admin']));
+        Mail::shouldReceive('to')->andThrow(new \RuntimeException('falha smtp'));
+
+        $this->post('/painel/expositores', ['name' => 'Rui', 'email' => 'rui@example.com', 'enviar_email' => 1])
+            ->assertSessionHas('aviso')->assertSessionHas('convite');
     }
 }

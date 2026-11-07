@@ -33,6 +33,7 @@ Route::middleware(['auth', Papel::class.':admin'])->prefix('painel')->name('pain
     Route::resource('stands', Painel\StandController::class)->except('show');
     Route::resource('expositores', Painel\ExpositorController::class)->parameters(['expositores' => 'expositor'])->except('show');
     Route::post('expositores/{expositor}/convite', [Painel\ExpositorController::class, 'convite'])->name('expositores.convite');
+    Route::post('email-teste', [Painel\DashboardController::class, 'emailTeste'])->middleware('throttle:5,1')->name('email-teste');
     Route::get('alteracoes', [Painel\AlteracaoController::class, 'index'])->name('alteracoes');
     Route::get('mapa', [Painel\MapaController::class, 'edit'])->name('mapa.edit');
     Route::put('mapa', [Painel\MapaController::class, 'update'])->name('mapa.update');

@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>@yield('titulo', 'Painel') · Festival Aracati</title>
-<link rel="stylesheet" href="/estilos/painel.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#012468">
+<link rel="stylesheet" href="/estilos/painel.css?v={{ filemtime(public_path('estilos/painel.css')) }}">
 </head>
 <body>
 <header class="top">
-  <span class="logo">🍤 Festival Aracati</span>
+  <span class="logo">FESTIVAL ARACATI<small>Painel</small></span>
   @if(auth()->user()?->isAdmin())
     <a href="{{ route('painel.dashboard') }}" @class(['on'=>request()->routeIs('painel.dashboard')])>Resumo</a>
     <a href="{{ route('painel.stands.index') }}" @class(['on'=>request()->routeIs('painel.stands.*')])>Stands</a>
