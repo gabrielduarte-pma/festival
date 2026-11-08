@@ -91,7 +91,7 @@ function localTxt(s){
 function standsView(){
   var cats=['Todos'].concat(STANDS.map(function(s){return s.cat;}).filter(function(c,i,a){return a.indexOf(c)===i;}));
   var chips=cats.map(function(c){return '<button class="chip" data-cat="'+esc(c)+'" aria-pressed="'+(c===cat)+'">'+esc(c)+'</button>';}).join('');
-  return '<h1 class="page-title">Stands</h1><p class="sub" id="count"></p>'+
+  return '<div class="title-row"><h1 class="page-title">Stands</h1><a class="expo-login" href="/login" aria-label="Área do expositor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span>Fazer login</span></a></div><p class="sub" id="count"></p>'+
   '<label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16 L21 21"/></svg><input id="q" type="search" placeholder="Buscar stand, prato, nº ou ilha" autocomplete="off" value="'+esc(q)+'"></label>'+
   '<div class="chips">'+chips+'</div><div class="list" id="standlist"></div>';
 }
@@ -117,9 +117,11 @@ function mapView(){
   var chips=M.landmarks.map(function(l){return '<button class="chip sm" data-land="'+esc(l.nome)+'">'+esc(l.nome)+'</button>';}).join('');
   return ''+
   '<div class="maptop">'+
+    '<div class="mrow">'+
     '<label class="search sm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16 L21 21"/></svg><input id="mq" type="search" placeholder="Buscar stand ou ponto" autocomplete="off"></label>'+
+      '<button class="mhelp" data-act="help" aria-label="Como usar o mapa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L3 6.5 V20 L9 17.5 L15 20 L21 17.5 V4 L15 6.5 Z M9 4 V17.5 M15 6.5 V20"/></svg></button>'+
+    '</div>'+
     '<div class="sugg" id="sugg" hidden></div>'+
-    '<div class="chips sm">'+chips+'</div>'+
   '</div>'+
   '<div class="mapvp" id="mapvp"><div class="mapstage" id="mapstage" style="width:'+M.w+'px;height:'+M.h+'px">'+
     '<img src="'+M.src+'" width="'+M.w+'" height="'+M.h+'" alt="Mapa do evento" draggable="false">'+
@@ -271,7 +273,7 @@ function renderSheet(){
   if(!mp.sel){
     var gpsOn=mp.watch!=null||store('gps')===true;
     sh.className='sheet idle';
-    sh.innerHTML='<div class="sh-row"><div class="sh-txt"><b>Toque num lote ou escolha um stand</b><small>Arraste para mover, use dois dedos para aproximar.</small></div>'+
+    sh.innerHTML='<div class="sh-row">'+
       '<button class="btn ghost" data-act="where">'+(mp.pos?'Mudar posição':'Marcar onde estou')+'</button></div>'+
       (AFF?(gpsOn?'<div style="margin-top:6px;font-size:12px;opacity:.75;display:flex;justify-content:space-between;align-items:center"><span>📍 Localização ativa</span><button data-act="gpsoff" style="background:none;border:0;color:inherit;text-decoration:underline;font:inherit;padding:4px 0">desligar</button></div>':'<button class="btn" data-act="gps">Usar minha localização</button>'):'');
     return;
@@ -436,6 +438,7 @@ function mapTap(cx,cy){
 }
 function mapAction(a){
   if(a==='close')clearSel();
+  else if(a==='help'){var hh=document.getElementById('maphint');if(hh&&!hh.hidden&&mp.helpOn){mp.helpOn=false;setHint('');}else{mp.helpOn=true;setHint('Toque num lote ou escolha um stand. Arraste para mover e use dois dedos para aproximar.');clearTimeout(mp.helpT);mp.helpT=setTimeout(function(){if(mp.helpOn){mp.helpOn=false;setHint('');}},8000);}}
   else if(a==='route'){mp.route=!mp.route;if(mp.route&&!mp.pos){mp.placing=true;setHint('Toque no mapa onde você está agora');}drawOverlay();renderSheet();}
   else if(a==='where'){mp.placing=true;setHint('Toque no mapa onde você está agora');}
   else if(a==='gps'){store('gps',true);startGps();renderSheet();}
