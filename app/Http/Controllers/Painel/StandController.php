@@ -49,10 +49,10 @@ class StandController extends Controller
         $stand->slug = Stand::gerarSlug($stand->nome);
         $stand->save();
 
-        $dados = $request->validate($this->regrasPerfil());
+        $dados = $request->validate($this->regrasPerfil(), $this->mensagensPerfil());
         $this->salvarPerfil($stand, $request, $dados);
 
-        return redirect()->route('painel.stands.edit', $stand)->with('ok', 'Stand criado.');
+        return redirect()->route('painel.stands.edit', $stand)->with('ok', 'Estande criado.');
     }
 
     public function edit(Stand $stand)
@@ -74,23 +74,23 @@ class StandController extends Controller
             Alteracao::create([
                 'user_id' => $request->user()->id,
                 'stand_id' => $stand->id,
-                'resumo' => 'Dados do stand: '.implode(', ', $mudou),
+                'resumo' => 'Dados do estande: '.implode(', ', $mudou),
                 'dados' => ['campos' => $mudou],
             ]);
         }
 
-        $dados = $request->validate($this->regrasPerfil());
+        $dados = $request->validate($this->regrasPerfil(), $this->mensagensPerfil());
         $this->salvarPerfil($stand, $request, $dados);
 
-        return back()->with('ok', 'Stand salvo.');
+        return back()->with('ok', 'Estande salvo.');
     }
 
     public function destroy(Request $request, Stand $stand)
     {
-        Alteracao::create(['user_id' => $request->user()->id, 'resumo' => 'Stand removido: '.$stand->nome]);
+        Alteracao::create(['user_id' => $request->user()->id, 'resumo' => 'Estande removido: '.$stand->nome]);
         $stand->delete();
 
-        return redirect()->route('painel.stands.index')->with('ok', 'Stand removido.');
+        return redirect()->route('painel.stands.index')->with('ok', 'Estande removido.');
     }
 
     /** Dados para o seletor visual de posição (lotes, pontos de referência e demais stands). */

@@ -1,13 +1,13 @@
-{{-- Seletor visual de posição do stand no mapa. Preenche rect_x/rect_y/rect_w/rect_h do formulário. --}}
+{{-- Seletor visual de posição do estande no mapa. Preenche rect_x/rect_y/rect_w/rect_h do formulário. --}}
 <div id="mp" style="margin-top:12px">
   <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px">
     <b>Marcar no mapa</b>
     <button type="button" class="btn sec sm" data-z="-1">−</button>
     <button type="button" class="btn sec sm" data-z="1">+</button>
-    <button type="button" class="btn sec sm" id="mp-ir">Ir para o stand</button>
+    <button type="button" class="btn sec sm" id="mp-ir">Ir para o estande</button>
     <span class="mut" id="mp-info"></span>
   </div>
-  <p class="mut" style="margin:0 0 8px"><b>Clique</b> num lote para encaixar o stand nele · <b>arraste</b> para desenhar um retângulo livre. Em vermelho: este stand. Tracejado: lotes e outros stands.</p>
+  <p class="mut" style="margin:0 0 8px"><b>Clique</b> num lote para encaixar o estande nele · <b>arraste</b> para desenhar um retângulo livre. Em vermelho: este estande. Tracejado: lotes e outros stands.</p>
   <div id="mp-vp" style="height:520px;overflow:auto;border:1px solid var(--line);border-radius:12px;background:#eaf0fb;touch-action:pan-x pan-y">
     <div id="mp-stage" style="position:relative">
       <img id="mp-img" src="/assets/mapa.svg" alt="" draggable="false" style="display:block;user-select:none">

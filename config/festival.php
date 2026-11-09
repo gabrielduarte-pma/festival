@@ -6,7 +6,7 @@ return [
         'slogan' => 'Pra todos os gostos.',
         'inicio' => '2026-11-13T00:00:00-03:00',
         'fim' => '2026-11-16T00:00:00-03:00',
-        'sobre' => 'Três dias de música, gastronomia e cultura em Aracati. Veja a programação, descubra os stands e planeje o seu festival.',
+        'sobre' => 'Três dias de música, gastronomia e cultura em Aracati. Veja a programação, descubra os estandes e planeje o seu festival.',
         'realizacao' => 'Prefeitura Municipal de Aracati',
     ],
 

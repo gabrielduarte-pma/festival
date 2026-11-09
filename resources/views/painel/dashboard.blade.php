@@ -3,7 +3,7 @@
 @section('conteudo')
 <h1>Resumo do festival</h1>
 <div class="grid">
-  <div class="card"><div class="num">{{ $total }}</div>stands <div class="mut">{{ $ativos }} ativos</div></div>
+  <div class="card"><div class="num">{{ $total }}</div>estandes <div class="mut">{{ $ativos }} ativos</div></div>
   <div class="card"><div class="num">{{ $completos }}</div>perfis completos <div class="mut">sobre + foto + contato</div></div>
   <div class="card"><div class="num">{{ $comFoto }}</div>com foto</div>
   <div class="card"><div class="num">{{ $expositores }}</div>expositores <div class="mut">{{ $pendentes }} ainda não criaram senha</div></div>

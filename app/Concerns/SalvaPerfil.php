@@ -19,8 +19,9 @@ trait SalvaPerfil
         return [
             'sobre' => ['nullable', 'string', 'max:1200'],
             'horario' => ['nullable', 'string', 'max:120'],
+            'cardapio_tipo' => ['nullable', 'in:link,arquivo'],
             'cardapio_url' => ['nullable', 'url', 'max:500'],
-            'cardapio' => ['nullable', 'file', 'mimes:pdf,jpg,jpeg,png,webp', 'max:10240'],
+            'cardapio' => ['nullable', 'file', 'mimes:pdf,jpg,jpeg,png,webp', 'max:30720'],
             'remover_cardapio' => ['nullable', 'boolean'],
             'instagram' => ['nullable', 'string', 'max:120', 'regex:/^[A-Za-z0-9._@\/:\-?=&]+$/'],
             'whatsapp' => ['nullable', 'string', 'max:30'],
@@ -28,6 +29,22 @@ trait SalvaPerfil
             'fotos.*' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:8192'],
             'remover_fotos' => ['nullable', 'array'],
             'remover_fotos.*' => ['integer'],
+        ];
+    }
+
+    protected function mensagensPerfil(): array
+    {
+        return [
+            'cardapio.max' => 'O arquivo do cardápio passa do limite de 30 MB. Envie um arquivo menor ou use o link do cardápio.',
+            'cardapio.mimes' => 'O cardápio deve ser um PDF ou uma imagem (JPG, PNG ou WebP).',
+            'cardapio.uploaded' => 'Não foi possível enviar o cardápio: o arquivo é maior que o limite aceito. Envie um arquivo menor.',
+            'fotos.max' => 'Cada estande pode ter até '.self::MAX_FOTOS.' fotos.',
+            'fotos.*.max' => 'Cada foto pode ter no máximo 8 MB. Escolha uma foto menor.',
+            'fotos.*.image' => 'Os arquivos de foto devem ser imagens (JPG, PNG ou WebP).',
+            'fotos.*.mimes' => 'As fotos devem ser JPG, PNG ou WebP.',
+            'fotos.*.uploaded' => 'Não foi possível enviar uma das fotos: o arquivo é maior que o limite aceito (8 MB). Escolha uma foto menor.',
+            'cardapio_url.url' => 'O link do cardápio precisa começar com http:// ou https://.',
+            'instagram.regex' => 'O Instagram deve ter só letras, números, ponto ou sublinhado. Exemplo: @seurestaurante.',
         ];
     }
 
@@ -42,19 +59,34 @@ trait SalvaPerfil
             'whatsapp' => isset($dados['whatsapp']) ? (preg_replace('/\D+/', '', $dados['whatsapp']) ?: null) : null,
         ]);
 
-        // Cardápio: link OU arquivo
-        if ($request->boolean('remover_cardapio')) {
+        // Cardápio: o expositor escolhe usar um LINK ou enviar um ARQUIVO
+        $tipo = $dados['cardapio_tipo'] ?? null;
+        if ($tipo === 'link') {
             $this->apagarCardapio($stand);
+            $stand->cardapio_url = ! empty($dados['cardapio_url']) ? $dados['cardapio_url'] : null;
+        } elseif ($tipo === 'arquivo') {
             $stand->cardapio_url = null;
-        }
-        if (! empty($dados['cardapio_url'])) {
-            $this->apagarCardapio($stand);
-            $stand->cardapio_url = $dados['cardapio_url'];
-        }
-        if ($request->hasFile('cardapio')) {
-            $this->apagarCardapio($stand);
-            $stand->cardapio_path = $request->file('cardapio')->store('cardapios', 'public');
-            $stand->cardapio_url = null;
+            if ($request->boolean('remover_cardapio')) {
+                $this->apagarCardapio($stand);
+            }
+            if ($request->hasFile('cardapio')) {
+                $this->apagarCardapio($stand);
+                $stand->cardapio_path = $request->file('cardapio')->store('cardapios', 'public');
+            }
+        } else {
+            if ($request->boolean('remover_cardapio')) {
+                $this->apagarCardapio($stand);
+                $stand->cardapio_url = null;
+            }
+            if (! empty($dados['cardapio_url'])) {
+                $this->apagarCardapio($stand);
+                $stand->cardapio_url = $dados['cardapio_url'];
+            }
+            if ($request->hasFile('cardapio')) {
+                $this->apagarCardapio($stand);
+                $stand->cardapio_path = $request->file('cardapio')->store('cardapios', 'public');
+                $stand->cardapio_url = null;
+            }
         }
 
         $campos = array_keys($stand->getDirty());

@@ -12,11 +12,11 @@
       <tr><td style="background:#ffffff;border-radius:16px;padding:28px;color:#012468">
         <p style="margin:0 0 12px;font-size:18px;font-weight:800">Olá, {{ $nome }}!</p>
         <p style="margin:0 0 14px;font-size:15px;line-height:1.55">
-          Você recebeu acesso para preencher as informações do seu stand no <b>app do festival</b>:
+          Você recebeu acesso para preencher as informações do seu estande no <b>app do festival</b>:
           descrição, horário, Instagram, WhatsApp, cardápio e fotos. O que você salvar aparece no app na hora.
         </p>
         @if(count($stands))
-        <p style="margin:0 0 6px;font-size:13px;color:#5a6b94">Stand(s) liberado(s) para você:</p>
+        <p style="margin:0 0 6px;font-size:13px;color:#5a6b94">Estande(s) liberado(s) para você:</p>
         <ul style="margin:0 0 16px;padding-left:18px;font-size:15px;font-weight:700">
           @foreach($stands as $s)<li>{{ $s }}</li>@endforeach
         </ul>

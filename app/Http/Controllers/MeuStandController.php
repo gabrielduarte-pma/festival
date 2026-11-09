@@ -32,10 +32,10 @@ class MeuStandController extends Controller
     {
         abort_unless($request->user()->podeEditar($stand), 403);
 
-        $dados = $request->validate($this->regrasPerfil());
+        $dados = $request->validate($this->regrasPerfil(), $this->mensagensPerfil());
         $total = $stand->fotos()->count() - count($dados['remover_fotos'] ?? []) + count($request->file('fotos', []));
         if ($total > self::MAX_FOTOS) {
-            return back()->withErrors(['fotos' => 'Cada stand pode ter até '.self::MAX_FOTOS.' fotos.'])->withInput();
+            return back()->withErrors(['fotos' => 'Cada estande pode ter até '.self::MAX_FOTOS.' fotos.'])->withInput();
         }
 
         $this->salvarPerfil($stand, $request, $dados);

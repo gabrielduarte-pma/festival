@@ -11,7 +11,7 @@
     <div><label>Telefone</label><input type="tel" name="telefone" value="{{ old('telefone',$user->telefone) }}"></div>
   </div>
   @if($user->exists)<label><input type="checkbox" name="ativo" value="1" @checked(old('ativo',$user->ativo))> Acesso liberado</label>@endif
-  <label>Stands que ele pode editar</label>
+  <label>Estandes que ele pode editar</label>
   <select name="stands[]" multiple size="12">
     @foreach($stands as $s)<option value="{{ $s->id }}" @selected($selecionados->contains($s->id))>{{ $s->nome }}{{ $s->numero ? ' · nº '.$s->numero : '' }}</option>@endforeach
   </select>

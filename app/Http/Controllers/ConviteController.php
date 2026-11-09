@@ -37,6 +37,6 @@ class ConviteController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect('/meu-stand')->with('ok', 'Senha criada! Preencha as informações do seu stand.');
+        return redirect('/meu-stand')->with('ok', 'Senha criada! Preencha as informações do seu estande.');
     }
 }

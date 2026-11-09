@@ -47,8 +47,8 @@ function home(){
   '</section>'+
   '<div class="quick">'+
     '<a class="qcard" href="#programacao"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10 H21 M8 3 V7 M16 3 V7"/></svg><div><b>Programação</b><small>3 dias · 6 atrações</small></div></a>'+
-    '<a class="qcard" href="#stands"><svg viewBox="0 0 24 24"><path d="M3 9 L5 4 H19 L21 9 Z M4 9 V20 H20 V9 M9 20 V14 H15 V20"/></svg><div><b>Stands</b><small>'+STANDS.length+' para conhecer</small></div></a>'+
-    '<a class="qcard wide" href="#mapa"><svg viewBox="0 0 24 24"><path d="M12 21 C12 21 5 14 5 9.5 A7 7 0 0 1 19 9.5 C19 14 12 21 12 21 Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Mapa do evento</b><small>Encontre qualquer stand e veja o caminho</small></div></a>'+
+    '<a class="qcard" href="#stands"><svg viewBox="0 0 24 24"><path d="M3 9 L5 4 H19 L21 9 Z M4 9 V20 H20 V9 M9 20 V14 H15 V20"/></svg><div><b>Estandes</b><small>'+STANDS.length+' para conhecer</small></div></a>'+
+    '<a class="qcard wide" href="#mapa"><svg viewBox="0 0 24 24"><path d="M12 21 C12 21 5 14 5 9.5 A7 7 0 0 1 19 9.5 C19 14 12 21 12 21 Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Mapa do evento</b><small>Encontre qualquer estande e veja o caminho</small></div></a>'+
   '</div>'+
   '<div class="sec-head">'+STAR+'LINE-UP'+STAR+'</div>'+lu+
   '<div class="sec-head">'+STAR+'O FESTIVAL'+STAR+'</div>'+
@@ -91,8 +91,8 @@ function localTxt(s){
 function standsView(){
   var cats=['Todos'].concat(STANDS.map(function(s){return s.cat;}).filter(function(c,i,a){return a.indexOf(c)===i;}));
   var chips=cats.map(function(c){return '<button class="chip" data-cat="'+esc(c)+'" aria-pressed="'+(c===cat)+'">'+esc(c)+'</button>';}).join('');
-  return '<div class="title-row"><h1 class="page-title">Stands</h1><a class="expo-login" href="/login" aria-label="Área do expositor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span>Fazer login</span></a></div><p class="sub" id="count"></p>'+
-  '<label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16 L21 21"/></svg><input id="q" type="search" placeholder="Buscar stand, prato, nº ou ilha" autocomplete="off" value="'+esc(q)+'"></label>'+
+  return '<div class="title-row"><h1 class="page-title">Estandes</h1><a class="expo-login" href="/login" aria-label="Área do expositor"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span>Fazer login</span></a></div><p class="sub" id="count"></p>'+
+  '<label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16 L21 21"/></svg><input id="q" type="search" placeholder="Buscar estande, prato, nº ou ilha" autocomplete="off" value="'+esc(q)+'"></label>'+
   '<div class="chips">'+chips+'</div><div class="list" id="standlist"></div>';
 }
 function fillStands(){
@@ -100,12 +100,12 @@ function fillStands(){
   var rows=STANDS.filter(function(s){
     return (cat==='Todos'||s.cat===cat)&&(!n||norm(s.nome).indexOf(n)>-1||norm(localTxt(s)).indexOf(n)>-1||norm(s.cat).indexOf(n)>-1||(s.ref&&norm(s.ref).indexOf(n)>-1));
   }).sort(byName);
-  document.getElementById('count').textContent=rows.length+(rows.length===1?' stand':' stands')+' · toque em "Mapa" para ver onde fica';
+  document.getElementById('count').textContent=rows.length+(rows.length===1?' estande':' estandes')+' · toque em "Mapa" para ver onde fica';
   document.getElementById('standlist').innerHTML=rows.length?rows.map(function(s){
     var badge=s.ilha?'<small>Ilha</small><b>'+s.ilha+'</b>':'<small>Nº</small><b>'+esc(s.num&&s.num!=='s/n'?s.num:'—')+'</b>';
     return '<div class="stand tap" data-perfil="'+s.id+'" role="link" tabindex="0"><div class="n">'+badge+'</div><div class="i"><b>'+esc(s.nome)+'</b><small>'+esc(s.cat)+(s.ilha?' · posição '+s.pos:'')+(s.ref?' · perto: '+esc(s.ref):'')+'</small></div>'+
       '<button class="gomap" data-map="'+s.id+'" aria-label="Ver '+esc(s.nome)+' no mapa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21 C12 21 5 14 5 9.5 A7 7 0 0 1 19 9.5 C19 14 12 21 12 21 Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Mapa</button></div>';
-  }).join(''):'<div class="empty">Nenhum stand encontrado. Tente outro nome ou categoria.</div>';
+  }).join(''):'<div class="empty">Nenhum estande encontrado. Tente outro nome ou categoria.</div>';
 }
 
 /* ---------- mapa ---------- */
@@ -118,7 +118,7 @@ function mapView(){
   return ''+
   '<div class="maptop">'+
     '<div class="mrow">'+
-    '<label class="search sm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16 L21 21"/></svg><input id="mq" type="search" placeholder="Buscar stand ou ponto" autocomplete="off"></label>'+
+    '<label class="search sm"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16 16 L21 21"/></svg><input id="mq" type="search" placeholder="Buscar estande ou ponto" autocomplete="off"></label>'+
       '<button class="mhelp" data-act="help" aria-label="Como usar o mapa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L3 6.5 V20 L9 17.5 L15 20 L21 17.5 V4 L15 6.5 Z M9 4 V17.5 M15 6.5 V20"/></svg></button>'+
     '</div>'+
     '<div class="sugg" id="sugg" hidden></div>'+
@@ -284,7 +284,7 @@ function renderSheet(){
   }
   if(t.ref)sub.push('Perto de '+t.ref);
   var list=t.items.length>1?'<ul class="sh-list">'+t.items.map(function(x){return '<li><a href="#stand/'+x.id+'">'+esc(x.nome)+' <small>'+esc(x.cat)+'</small> <span aria-hidden="true">›</span></a></li>';}).join('')+'</ul>':'';
-  var title=t.items.length>1?'Neste ponto ('+t.items.length+' stands)':t.title;
+  var title=t.items.length>1?'Neste ponto ('+t.items.length+' estandes)':t.title;
   var info='';
   var pr=routePts();
   if(mp.route){
@@ -295,7 +295,7 @@ function renderSheet(){
   sh.innerHTML='<button class="sh-x" data-act="close" aria-label="Fechar">×</button>'+
     '<div class="sh-title">'+esc(title)+'</div>'+
     (sub.length?'<div class="sh-sub">'+esc(sub.join(' · '))+'</div>':'')+list+info+
-    (t.items.length===1?'<button class="btn prof" data-perfil="'+t.items[0].id+'">Ver perfil do stand</button>':'')+'<div class="sh-btns"><button class="btn" data-act="route">'+(mp.route?'Esconder caminho':'Como chegar')+'</button>'+
+    (t.items.length===1?'<button class="btn prof" data-perfil="'+t.items[0].id+'">Ver perfil do estande</button>':'')+'<div class="sh-btns"><button class="btn" data-act="route">'+(mp.route?'Esconder caminho':'Como chegar')+'</button>'+
     '<button class="btn ghost" data-act="where">'+(mp.pos?'Mudar posição':'Marcar onde estou')+'</button></div>';
 }
 
@@ -344,7 +344,7 @@ function dbgRender(){
       '<br>precisão ±<b>'+Math.round(d.acc)+' m</b>'+(d.spd!=null?' · '+(d.spd*3.6).toFixed(1)+' km/h':'')+
       '<br>mapa x <b>'+(p?Math.round(p.x):'—')+'</b> y <b>'+(p?Math.round(p.y):'—')+'</b> · '+(p?(ins?'dentro':'FORA da área'):'sem calibração ('+(M.ancoras||[]).length+' pontos)')+
       (n?'<br>mais perto: <b>'+esc(n.nome)+'</b> ('+(n.d<1?'dentro':Math.round(n.d)+' m')+')':'')+
-      '<br>alvo: <b>'+esc(mp.sel?mp.sel.title:'toque num stand/lote')+'</b>';
+      '<br>alvo: <b>'+esc(mp.sel?mp.sel.title:'toque num estande/lote')+'</b>';
   }
   h+='<div class="dbgb"><button data-d="reg">Registrar ponto</button><button data-d="rep">Relatório ('+dbgSamples().length+')</button><button data-d="clr">Limpar</button><button data-d="off">Sair</button></div><textarea id="dbgt" readonly hidden></textarea>';
   var ta=document.getElementById('dbgt'),keep=ta&&!ta.hidden?ta.value:null;
@@ -438,7 +438,7 @@ function mapTap(cx,cy){
 }
 function mapAction(a){
   if(a==='close')clearSel();
-  else if(a==='help'){var hh=document.getElementById('maphint');if(hh&&!hh.hidden&&mp.helpOn){mp.helpOn=false;setHint('');}else{mp.helpOn=true;setHint('Toque num lote ou escolha um stand. Arraste para mover e use dois dedos para aproximar.');clearTimeout(mp.helpT);mp.helpT=setTimeout(function(){if(mp.helpOn){mp.helpOn=false;setHint('');}},8000);}}
+  else if(a==='help'){var hh=document.getElementById('maphint');if(hh&&!hh.hidden&&mp.helpOn){mp.helpOn=false;setHint('');}else{mp.helpOn=true;setHint('Toque num lote ou escolha um estande. Arraste para mover e use dois dedos para aproximar.');clearTimeout(mp.helpT);mp.helpT=setTimeout(function(){if(mp.helpOn){mp.helpOn=false;setHint('');}},8000);}}
   else if(a==='route'){mp.route=!mp.route;if(mp.route&&!mp.pos){mp.placing=true;setHint('Toque no mapa onde você está agora');}drawOverlay();renderSheet();}
   else if(a==='where'){mp.placing=true;setHint('Toque no mapa onde você está agora');}
   else if(a==='gps'){store('gps',true);startGps();renderSheet();}
@@ -453,7 +453,7 @@ function igUrl(v){if(!v)return null;v=String(v).trim();if(/^https?:/i.test(v))re
 function waUrl(v){var n=String(v||'').replace(/\D/g,'');return n?'https://wa.me/'+n:null;}
 var CATICON={Gastronomia:'M7 3v8a2 2 0 0 0 2 2v8 M11 3v8 M9 3v8 M17 3c-2 2-2 6 0 8v10',Bebidas:'M8 3h8l-1 8a3 3 0 0 1-6 0Z M12 14v7 M8 21h8',Artesanato:'M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5Z',Cultura:'M5 8l7-4 7 4v2H5Z M7 10v8 M12 10v8 M17 10v8 M4 20h16',Serviços:'M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7Z M9 12l2 2 4-4',Outros:'M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5Z'};
 function perfilView(id){
-  var s=standById(id); if(!s)return '<div class="empty">Stand não encontrado.</div><p style="text-align:center"><a class="btn" href="#stands">Ver stands</a></p>';
+  var s=standById(id); if(!s)return '<div class="empty">Estande não encontrado.</div><p style="text-align:center"><a class="btn" href="#stands">Ver estandes</a></p>';
   var P=PERFIS[s.id]||{}, fotos=P.fotos||(P.foto?[P.foto]:[]);
   var ico=CATICON[s.cat]||CATICON.Outros;
   var hero=fotos.length?'<div class="pf-photos" aria-label="Fotos de '+esc(s.nome)+'">'+fotos.map(function(f){return '<img src="'+esc(f)+'" alt="Foto de '+esc(s.nome)+'" loading="lazy">';}).join('')+'</div>'
@@ -468,7 +468,7 @@ function perfilView(id){
   '<div class="eyebrow pf-cat">'+esc(s.cat)+'</div>'+
   '<h1 class="page-title pf-title">'+esc(s.nome)+'</h1>'+
   '<div class="pf-chips"><span class="chip on">'+esc(loc)+'</span>'+(s.ref?'<span class="chip on">Perto de '+esc(s.ref)+'</span>':'')+(P.horario?'<span class="chip on">'+esc(P.horario)+'</span>':'')+'</div>'+
-  '<p class="pf-about">'+(P.sobre?esc(P.sobre):'Em breve mais informações sobre este stand.')+'</p>'+
+  '<p class="pf-about">'+(P.sobre?esc(P.sobre):'Em breve mais informações sobre este estande.')+'</p>'+
   '<div class="pf-actions">'+cardapio+instag+zap+'</div>'+
   '<div class="pf-actions two"><button class="btn ghost" data-map="'+s.id+'">Ver no mapa</button><button class="btn" data-goroute="'+s.id+'">Como chegar</button></div>'+
   (mesmo.length?'<div class="sec-head" style="margin-top:26px">NO MESMO PONTO</div><div class="list">'+mesmo.map(function(x){return '<a class="stand" href="#stand/'+x.id+'"><div class="i"><b>'+esc(x.nome)+'</b><small>'+esc(x.cat)+'</small></div></a>';}).join('')+'</div>':'');

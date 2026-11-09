@@ -13,13 +13,13 @@
   <span class="logo">FESTIVAL ARACATI<small>Painel</small></span>
   @if(auth()->user()?->isAdmin())
     <a href="{{ route('painel.dashboard') }}" @class(['on'=>request()->routeIs('painel.dashboard')])>Resumo</a>
-    <a href="{{ route('painel.stands.index') }}" @class(['on'=>request()->routeIs('painel.stands.*')])>Stands</a>
+    <a href="{{ route('painel.stands.index') }}" @class(['on'=>request()->routeIs('painel.stands.*')])>Estandes</a>
     <a href="{{ route('painel.expositores.index') }}" @class(['on'=>request()->routeIs('painel.expositores.*')])>Expositores</a>
     <a href="{{ route('painel.programacao.index') }}" @class(['on'=>request()->routeIs('painel.programacao.*')])>Programação</a>
     <a href="{{ route('painel.mapa.edit') }}" @class(['on'=>request()->routeIs('painel.mapa.*')])>Mapa/GPS</a>
     <a href="{{ route('painel.alteracoes') }}" @class(['on'=>request()->routeIs('painel.alteracoes')])>Histórico</a>
   @else
-    <a href="{{ route('meu-stand.index') }}" class="on">Meu stand</a>
+    <a href="{{ route('meu-stand.index') }}" class="on">Meu estande</a>
   @endif
   <span class="sp"></span>
   <a href="/" target="_blank">Ver o app ↗</a>
