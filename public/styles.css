@@ -138,7 +138,7 @@ body.mapmode main>*{animation:none}
 .sugg small{font-size:11px;color:var(--ink-dim)}
 .empty.sm{padding:14px}
 .mapvp{position:relative;flex:1;min-height:0;overflow:hidden;background:#EAF0FB;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
-.mapstage{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.mapstage{position:absolute;left:0;top:0;transform-origin:0 0}
 .mapstage img,.mapstage svg{position:absolute;left:0;top:0;display:block;pointer-events:none}
 .mapctl{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:8px}
 .mapctl button{width:40px;height:40px;border-radius:12px;border:0;background:var(--blue-deep);color:#fff;font-size:22px;font-weight:700;box-shadow:0 4px 12px rgba(0,10,50,.4);cursor:pointer}

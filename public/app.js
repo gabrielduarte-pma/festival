@@ -133,7 +133,16 @@ function mapView(){
 }
 
 function mapApply(){
-  mp.stage.style.transform='translate('+mp.tx+'px,'+mp.ty+'px) scale('+mp.s+')';
+  var st=mp.stage;
+  st.style.transform='translate('+mp.tx+'px,'+mp.ty+'px) scale('+mp.s+')';
+  /* Durante o gesto a camada fica "congelada" (rapido); quando para, o will-change sai e o
+     navegador redesenha o SVG na escala atual, entao o mapa fica nitido depois do zoom. */
+  st.style.willChange='transform';
+  clearTimeout(mp.sharpT);
+  mp.sharpT=setTimeout(function(){
+    st.style.willChange='auto';
+    st.style.transform='translate('+mp.tx+'px,'+mp.ty+'px) scale('+mp.s+')';
+  },200);
 }
 function mapClamp(){
   var r=mp.vp.getBoundingClientRect(), w=M.w*mp.s, h=M.h*mp.s;
