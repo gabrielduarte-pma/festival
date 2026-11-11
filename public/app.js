@@ -5,7 +5,7 @@ var view=document.getElementById('view');
 var STAR='<svg class="star" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="#F5A623"></path></svg>';
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v));}catch(e){return null;}}
-var DEBUG=(function(){try{var q=/[?&]debug=(\d)/.exec(location.search);if(q){localStorage.setItem('debug',q[1]);}return localStorage.getItem('debug')==='1';}catch(e){return false;}})();
+var DEBUG=(function(){try{localStorage.removeItem('debug');}catch(e){}return /[?&]debug=1(&|$)/.test(location.search);})(); /* so liga com ?debug=1 na URL; nao fica salvo */
 function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
 
 /* ---------- estado do evento ---------- */
@@ -325,7 +325,7 @@ function startGps(){
   },function(err){mp.watch=null;setHint('Não consegui sua localização'+(DEBUG?' ('+err.message+')':'')+'. Toque em "Marcar onde estou".');if(DEBUG){mp.dbg={erro:err.message||('código '+err.code),n:0};dbgRender();}},{enableHighAccuracy:true,maximumAge:0,timeout:20000});
 }
 
-/* ---- modo debug do GPS (?debug=1 liga, ?debug=0 desliga) ---- */
+/* ---- modo debug do GPS (so com ?debug=1 na URL) ---- */
 function dbgNearest(p){
   if(!p)return null;var best=null,mu=mPerUnit()||0.115;
   function chk(nome,r){var cx=r[0]+r[2]/2,cy=r[1]+r[3]/2;var inR=p.x>=r[0]&&p.x<=r[0]+r[2]&&p.y>=r[1]&&p.y<=r[1]+r[3];var d=inR?0:Math.hypot(p.x-cx,p.y-cy)*mu;if(!best||d<best.d)best={nome:nome,d:d,rect:r};}
@@ -375,7 +375,7 @@ function dbgInit(){
       var t=document.getElementById('dbgt'),txt=dbgReport();t.hidden=false;t.value=txt;t.focus();t.select();try{navigator.clipboard.writeText(txt).catch(function(){});}catch(x){}
     }else if(a==='clr'){store('dbg_samples',[]);dbgRender();}
     else if(a==='min'){box.classList.toggle('min');dbgRender();}
-    else if(a==='off'){try{localStorage.setItem('debug','0');}catch(x){}location.href=location.pathname+'?debug=0#mapa';}
+    else if(a==='off'){location.href=location.pathname+'#mapa';}
   });
   startGps();dbgRender();
 }
