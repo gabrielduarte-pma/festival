@@ -54,9 +54,8 @@ main{overflow-x:clip}
 .lu-row .n{font-size:16px;font-weight:700;line-height:1.1}
 .lu-row.hi .n{font-size:18px;font-weight:800}
 .about{font-size:14px;font-weight:500;line-height:1.55;color:var(--ink-dim);margin-top:6px}
-.foot{margin-top:30px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;gap:16px}
-.foot img{width:116px;height:auto;flex:none}
-.foot span{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--accent)}
+.foot{margin:30px calc(-1*max(20px,env(safe-area-inset-left,0px))) -8px calc(-1*max(20px,env(safe-area-inset-right,0px)));padding:12px 10px;background:#fff}
+.foot img{display:block;width:100%;height:auto}
 
 /* programação */
 .tabs{display:flex;gap:10px;margin-top:18px}

@@ -53,7 +53,7 @@ function home(){
   '<div class="sec-head">'+STAR+'LINE-UP'+STAR+'</div>'+lu+
   '<div class="sec-head">'+STAR+'O FESTIVAL'+STAR+'</div>'+
   '<p class="about">'+esc(E.sobre)+'</p>'+
-  '<div class="foot"><img src="assets/logo.webp" alt="Prefeitura do Aracati"><span>REALIZAÇÃO</span></div>';
+  '<div class="foot"><img src="assets/patrocinios.webp" alt="Realização: Prefeitura do Aracati e Sebrae. Co-realização: Labes e Sabores em Cena. Apoio cultural: Coca-Cola e Eisenbahn. Apoio institucional: Mecenas do Ceará, Governo do Estado do Ceará"></div>';
 }
 
 var diaSel=null;
