@@ -532,7 +532,13 @@ document.addEventListener('click',function(e){
   var f=e.target.closest('[data-fav]');
   if(f){var k=f.dataset.fav;if(favs[k])delete favs[k];else favs[k]=1;store('favs',favs);f.setAttribute('aria-pressed',String(!!favs[k]));return;}
   var pc=e.target.closest('[data-palco]');
-  if(pc){palcoSel=pc.dataset.palco;render();return;}
+  if(pc){
+    var cr=document.querySelector('.chips'),sl=cr?cr.scrollLeft:0,sy=window.pageYOffset;
+    palcoSel=pc.dataset.palco;render();
+    var cr2=document.querySelector('.chips');
+    if(cr2){cr2.scrollLeft=sl;var on=cr2.querySelector('.chip[aria-pressed="true"]');
+      if(on){var l=on.offsetLeft,r=l+on.offsetWidth;if(l<cr2.scrollLeft+20)cr2.scrollLeft=Math.max(0,l-20);else if(r>cr2.scrollLeft+cr2.clientWidth-20)cr2.scrollLeft=r-cr2.clientWidth+20;}}
+    window.scrollTo(0,sy);return;}
   var c=e.target.closest('[data-cat]');
   if(c){cat=c.dataset.cat;document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',String(x===c));});fillStands();}
 });
