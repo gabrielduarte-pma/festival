@@ -204,3 +204,13 @@ body.mapmode main>*{animation:none}
 .mhelp{flex:none;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff}
 .mhelp svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .mhelp:active{background:var(--accent);color:var(--blue-deep)}
+
+.pf-photos img{cursor:zoom-in}
+#zoomfoto{position:fixed;inset:0;z-index:200;background:rgba(0,8,30,.94);display:flex;align-items:center;animation:zfin .18s ease}
+@keyframes zfin{from{opacity:0}to{opacity:1}}
+#zoomfoto .zf-row{display:flex;width:100%;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+#zoomfoto .zf-row::-webkit-scrollbar{display:none}
+#zoomfoto .zf-s{flex:none;width:100%;height:100%;scroll-snap-align:center;display:flex;align-items:center;justify-content:center;padding:56px 12px 40px;box-sizing:border-box}
+#zoomfoto .zf-s img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px}
+#zoomfoto .zf-x{position:absolute;top:max(12px,env(safe-area-inset-top));right:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:30px;line-height:1;cursor:pointer}
+#zoomfoto .zf-n{position:absolute;bottom:max(14px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:#fff;font-size:13px;font-weight:700;letter-spacing:1px}
