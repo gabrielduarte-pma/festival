@@ -478,10 +478,10 @@ function perfilView(id){
   var P=PERFIS[s.id]||{}, fotos=P.fotos||(P.foto?[P.foto]:[]);
   var ico=CATICON[s.cat]||CATICON.Outros;
   var hero=fotos.length?'<div class="pf-photos" aria-label="Fotos de '+esc(s.nome)+'">'+fotos.map(function(f){return '<img src="'+esc(f)+'" alt="Foto de '+esc(s.nome)+'" loading="lazy">';}).join('')+'</div>'
-    :'<div class="pf-photo-empty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+ico+'"/></svg><b>Foto em breve</b></div>';
+    :'';
   var loc=s.ilha?'Ilha '+s.ilha+' · posição '+s.pos:(s.num&&s.num!=='s/n'?'Lote nº '+s.num:'Sem número');
-  var cardapio=P.cardapio?'<a class="btn" href="'+esc(P.cardapio)+'" target="_blank" rel="noopener">Ver cardápio</a>':'<span class="btn off" aria-disabled="true">Cardápio em breve</span>';
-  var ig=igUrl(P.instagram), instag=ig?'<a class="btn ghost" href="'+esc(ig)+'" target="_blank" rel="noopener">Instagram</a>':'<span class="btn ghost off" aria-disabled="true">Instagram em breve</span>';
+  var cardapio=P.cardapio?'<a class="btn" href="'+esc(P.cardapio)+'" target="_blank" rel="noopener">Ver cardápio</a>':'';
+  var ig=igUrl(P.instagram), instag=ig?'<a class="btn ghost" href="'+esc(ig)+'" target="_blank" rel="noopener">Instagram</a>':'';
   var wa=waUrl(P.whatsapp), zap=wa?'<a class="btn ghost" href="'+esc(wa)+'" target="_blank" rel="noopener">WhatsApp</a>':'';
   var mesmo=STANDS.filter(function(x){return x.id!==s.id&&x.rect[0]===s.rect[0]&&x.rect[1]===s.rect[1]&&x.rect[2]===s.rect[2]&&x.rect[3]===s.rect[3];});
   return '<button class="pf-back" data-back="1" aria-label="Voltar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Voltar</button>'+
@@ -489,8 +489,8 @@ function perfilView(id){
   '<div class="eyebrow pf-cat">'+esc(s.cat)+'</div>'+
   '<h1 class="page-title pf-title">'+esc(s.nome)+'</h1>'+
   '<div class="pf-chips"><span class="chip on">'+esc(loc)+'</span>'+(s.ref?'<span class="chip on">Perto de '+esc(s.ref)+'</span>':'')+(P.horario?'<span class="chip on">'+esc(P.horario)+'</span>':'')+'</div>'+
-  '<p class="pf-about">'+(P.sobre?esc(P.sobre):'Em breve mais informações sobre este estande.')+'</p>'+
-  '<div class="pf-actions">'+cardapio+instag+zap+'</div>'+
+  (P.sobre?'<p class="pf-about">'+esc(P.sobre)+'</p>':'')+
+  ((cardapio||instag||zap)?'<div class="pf-actions">'+cardapio+instag+zap+'</div>':'')+
   '<div class="pf-actions two"><button class="btn ghost" data-map="'+s.id+'">Ver no mapa</button><button class="btn" data-goroute="'+s.id+'">Como chegar</button></div>'+
   (mesmo.length?'<div class="sec-head" style="margin-top:26px">NO MESMO PONTO</div><div class="list">'+mesmo.map(function(x){return '<a class="stand" href="#stand/'+x.id+'"><div class="i"><b>'+esc(x.nome)+'</b><small>'+esc(x.cat)+'</small></div></a>';}).join('')+'</div>':'');
 }
