@@ -74,7 +74,7 @@ main{overflow-x:clip}
 .list{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .slot{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
 .slot.hi{border:1.5px solid var(--accent)}
-.slot .t{width:54px;flex:none;font-size:19px;font-weight:800;line-height:1}
+.slot .t{width:84px;flex:none;font-size:15px;font-weight:800;line-height:1.2}
 .slot .t.soon{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--ink-dim);line-height:1.2}
 .slot.hi .t{color:var(--accent)}
 .slot .i{flex:1;min-width:0}

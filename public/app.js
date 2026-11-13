@@ -32,7 +32,7 @@ function avatar(a){return '<div class="avatar"><img class="'+(a.flip?'flip':'')+
 function home(){
   var lu=DIAS.map(function(d){
     return '<div class="lu-day"><div class="d"><b>'+d.nome.toUpperCase()+'</b><span>'+d.data+'</span></div>'+
-      d.atracoes.slice().reverse().map(function(a){
+      d.atracoes.filter(function(a){return a.img;}).reverse().map(function(a){
         return '<div class="lu-row'+(a.destaque?' hi':'')+'">'+avatar(a)+'<div class="n">'+esc(a.nome)+'</div></div>';
       }).join('')+'</div>';
   }).join('');
@@ -56,20 +56,32 @@ function home(){
   '<div class="foot"><img src="assets/patrocinios.webp" alt="Realização: Prefeitura do Aracati e Sebrae. Co-realização: Labes e Sabores em Cena. Apoio cultural: Coca-Cola e Eisenbahn. Apoio institucional: Mecenas do Ceará, Governo do Estado do Ceará"></div>';
 }
 
-var diaSel=null;
+var diaSel=null, palcoSel='Palco Principal';
+function horaKey(h){var m=/(\d{1,2})h(\d{2})?/.exec(h||'');if(!m)return 9999;var H=+m[1];if(H<6)H+=24;return H*60+(+(m[2]||0));}
+function palcoChip(p){return String(p||'').split(' · ')[0];}
 function programacao(){
   if(!diaSel)diaSel=hojeId()||DIAS[0].id;
   var dia=DIAS.filter(function(d){return d.id===diaSel;})[0];
   var tabs=DIAS.map(function(d){
     return '<button class="tab" role="tab" data-dia="'+d.id+'" aria-selected="'+(d.id===diaSel)+'"><small>'+d.sigla+'</small><b>'+d.id+'</b></button>';
   }).join('');
-  var hi=dia.atracoes.filter(function(a){return a.destaque;})[0]||dia.atracoes[dia.atracoes.length-1];
-  var parts=hi.nome.split(' ');var first=parts.shift();
-  var feat='<div class="feat"><img class="'+(hi.flip?'flip':'')+'" src="'+esc(imgSrc(hi.img))+'" alt="'+esc(hi.nome)+'">'+
-    '<div class="tag">ATRAÇÃO PRINCIPAL</div>'+
-    '<div class="name"><b>'+esc(first.toUpperCase())+'</b><span>'+esc(parts.join(' ').toUpperCase())+'</span></div>'+
-    '<div class="meta">'+(hi.hora?esc(hi.hora)+' · ':'')+esc(hi.palco)+'</div></div>';
-  var list=dia.atracoes.map(function(a){
+  var todas=dia.atracoes.map(function(a,i){return {a:a,i:i};}).sort(function(x,y){return horaKey(x.a.hora)-horaKey(y.a.hora)||x.i-y.i;}).map(function(x){return x.a;});
+  var locais=todas.map(function(a){return palcoChip(a.palco);}).filter(function(c,i,arr){return c&&arr.indexOf(c)===i;});
+  var PP='Palco Principal';
+  if(locais.indexOf(PP)>=0)locais=[PP].concat(locais.filter(function(c){return c!==PP;}));
+  if(palcoSel!=='Todos'&&locais.indexOf(palcoSel)<0)palcoSel='Todos';
+  var chips='<div class="chips">'+['Todos'].concat(locais).map(function(c){return '<button class="chip" data-palco="'+esc(c)+'" aria-pressed="'+(c===palcoSel)+'">'+esc(c)+'</button>';}).join('')+'</div>';
+  var com=dia.atracoes.filter(function(a){return a.img;});
+  var hi=com.filter(function(a){return a.destaque;})[0]||com[com.length-1];
+  var feat='';
+  if(hi){
+    var parts=hi.nome.split(' ');var first=parts.shift();
+    feat='<div class="feat"><img class="'+(hi.flip?'flip':'')+'" src="'+esc(imgSrc(hi.img))+'" alt="'+esc(hi.nome)+'">'+
+      '<div class="tag">ATRAÇÃO PRINCIPAL</div>'+
+      '<div class="name"><b>'+esc(first.toUpperCase())+'</b><span>'+esc(parts.join(' ').toUpperCase())+'</span></div>'+
+      '<div class="meta">'+(hi.hora?esc(hi.hora)+' · ':'')+esc(hi.palco)+'</div></div>';
+  }
+  var list=todas.filter(function(a){return palcoSel==='Todos'||palcoChip(a.palco)===palcoSel;}).map(function(a){
     var k=key(dia,a), on=!!favs[k];
     return '<div class="slot'+(a===hi?' hi':'')+'">'+
       (a.hora?'<div class="t">'+esc(a.hora)+'</div>':'<div class="t soon">Horário<br>em breve</div>')+
@@ -77,7 +89,7 @@ function programacao(){
       '<button class="fav" data-fav="'+esc(k)+'" aria-pressed="'+on+'" aria-label="Salvar '+esc(a.nome)+' na minha agenda"><svg viewBox="0 0 24 24"><path d="M12 3 L14.8 9 L21 9.6 L16.4 13.8 L17.8 20 L12 16.8 L6.2 20 L7.6 13.8 L3 9.6 L9.2 9 Z"/></svg></button></div>';
   }).join('');
   return '<h1 class="page-title">Programação</h1><p class="sub">'+dia.nome+', '+dia.data+' · toque na estrela para salvar na sua agenda.</p>'+
-    '<div class="tabs" role="tablist">'+tabs+'</div>'+feat+'<div class="list">'+list+'</div>'+
+    '<div class="tabs" role="tablist">'+tabs+'</div>'+feat+chips+'<div class="list">'+list+'</div>'+
     '<p class="note">Programação sujeita a alterações.</p>';
 }
 
@@ -519,6 +531,8 @@ document.addEventListener('click',function(e){
   if(t){diaSel=t.dataset.dia;render();return;}
   var f=e.target.closest('[data-fav]');
   if(f){var k=f.dataset.fav;if(favs[k])delete favs[k];else favs[k]=1;store('favs',favs);f.setAttribute('aria-pressed',String(!!favs[k]));return;}
+  var pc=e.target.closest('[data-palco]');
+  if(pc){palcoSel=pc.dataset.palco;render();return;}
   var c=e.target.closest('[data-cat]');
   if(c){cat=c.dataset.cat;document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',String(x===c));});fillStands();}
 });
